@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2; /* Background color of the page */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    flex-direction: row; /* Arrange containers side by side */
+    justify-content: space-around; /* Add space between containers */
+    align-items: center; /* Center vertically */
+}
+
+canvas {
+    display: block;
+    margin: auto;
+}
+
+/* Toggle switch styles */
+.toggle-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999; /* Ensure it appears on top of other content */
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch label {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-right: 10px; /* Adjust spacing between the switch and label */
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle-switch label:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.toggle-switch input:checked + label {
+  background-color: #2196F3;
+}
+
+.toggle-switch input:checked + label:before {
+  transform: translateX(20px);
+}
+
+.toggle-switch span {
+  color: #333;
+  font-size: 12px;
+}
+
+
+
+
+.input-group {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.input-group > div {
+  margin-right: 10px; /* Add some spacing between input and button */
+}
+
+.button-group {
+  margin-top: 10px; /* Add some spacing between input group and button group */
+}
+
+#csvFileInput {
+  margin-right: auto; /* Move csvFileInput to the left */
+}
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .input-group > div {
+    margin-right: 0; /* Remove right margin on smaller screens */
+    margin-bottom: 10px; /* Add spacing between input and button on smaller screens */
+  }
+}
+
+#addNameButton {
+  margin-right: 10px; /* Add some space between the buttons */
+}
+
+#raffleContainer {
+    width: 24%; /* Set width to occupy 25% of the viewport */
+    height: 80vh; /* Set height to occupy 80% of the viewport height */
+    max-height: 80%; /* Set maximum height to 80% of viewport height */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    background-color: #f9f9f9; /* Light gray background */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding shadow */
+}
+
+  #raffleBoard {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto; /* Allow scrolling if many names */
+  }
+
+  .card {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+}
+
+
+#winnerContainer {
+  background-color: black;
+  border: 5px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  height: 200px;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#winnerName {
+  background: transparent !important;
+  color: #d4af37;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+#winner {
+    background: transparent !important;
+    border: none;
+    font-size: 36px; /* Larger font size */
+    font-weight: bold;
+    color: #ffff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 0 5px; /* Add margin between buttons */
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  input[type="text"] {
+    width: 200px; /* Adjust the width as needed */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px; /* Add margin between input and button */
+  }
+
+ /* Fireworks canvas */
+ #fireworksCanvas {
+    width: 50%;
+    height: 100%;
+    position: absolute; /* or use relative positioning depending on your layout */
+    top: 0; /* adjust as needed */
+    right: 0; /* adjust as needed */
+    z-index: 1; /* ensure the canvas is on top other content */
+}
+
+
+/* Fireworks pop-up */
+#fireworksPopup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 100; /* Ensure it's on top of other content */
+}
+
+#fireworksContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adding shadow */
+}
+
+#fireworksPopup h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#fireworksPopup p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+}

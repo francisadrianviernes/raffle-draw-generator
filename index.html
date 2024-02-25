@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylesheet.css">
+<title>Raffle Draw App - Online and Free</title>
+</head>
+<body>
+<audio id="congratulatorySound" src="congratulatory.mp3"></audio>
+<!-- Toggle switch for audio -->
+<div class="toggle-switch">
+  <input type="checkbox" id="audioToggle">
+  <label for="audioToggle"></label>
+  <span>Toggle Sound Per Draw</span> <!-- Descriptive label for the toggle switch -->
+</div>
+<div id="raffleContainer">
+  <h1>Raffle Draw Generator App</h1>
+  <h3>Online Raffle Draws - Free!</h3> <!-- Subtitle -->
+  <!-- Input and button group -->
+  <div class="input-group">
+    <div>
+      <input type="text" id="nameInput" placeholder="Enter name" onkeypress="addNameOnEnter(event)">
+      <button id="addNameButton" onclick="addName()">Add Name</button>
+    </div>
+    <input type="file" id="csvFileInput" accept=".csv" onchange="uploadCSV(event)" title="Upload CSV file With Just One Column of Names">
+  </div>
+  <div id="raffleBoard">
+    <!-- Names will be displayed here -->
+  </div>
+  <div class="button-group">
+    <button id="startRaffleButton" onclick="startRaffle()">Start Raffle</button>
+    <button id="stopRaffleButton" onclick="stopRaffle()">Stop Raffle</button>
+  </div>
+</div>
+<div id="winnerContainer">
+  <div id="winner" class="card">Winner: <span id="winnerName"></span></div>
+
+<!-- Fireworks pop-up -->
+<div id="fireworksPopup">
+  <div id="fireworksContent">
+    <h2>Congratulations!</h2>
+    <p><span id="congratsName"></span>, your name has been chosen as the winner!</p>
+    <div class="button-group">
+      <button id="okButton" onclick="handleOkayButtonClick()">Okay!</button>
+      <button id="removeButton" onclick="handleRemoveButtonClick()">Remove</button>
+    </div>
+  </div>
+</div>
+</div>
+<canvas id="fireworksCanvas"></canvas>
+<footer>Created by percivalofthecrystalkey</footer> <!-- Footer -->
+<script src="script.js"></script>
+</body>
+</html>
