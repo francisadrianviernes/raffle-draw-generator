@@ -67,45 +67,40 @@ canvas {
 }
 
 
-
-
 .input-group {
   display: flex;
-  align-items: center; /* Align items vertically */
+  flex-direction: column;
+  align-items: center;
 }
 
-.input-group > div {
-  margin-right: 10px; /* Add some spacing between input and button */
+.input-group input[type="text"] {
+  width: 100%; /* Make the input field fill the available width */
+  margin-bottom: 10px; /* Add some vertical spacing between input field and button */
 }
 
-.button-group {
-  margin-top: 10px; /* Add some spacing between input group and button group */
+.input-group button {
+  width: 100%; /* Make the button fill the available width */
 }
 
-#csvFileInput {
-  margin-right: auto; /* Move csvFileInput to the left */
-}
-
-
-/* Adjustments for smaller screens */
-@media (max-width: 600px) {
-  .input-group {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-  }
-
-  .input-group > div {
-    margin-right: 0; /* Remove right margin on smaller screens */
-    margin-bottom: 10px; /* Add spacing between input and button on smaller screens */
+/* Add a media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  #raffleContainer {
+      width: 95%; /* Adjust the width for smaller screens */
+      margin-left: auto;
+      margin-right: auto; /* Center the container on smaller screens */
   }
 }
+
 
 #addNameButton {
   margin-right: 10px; /* Add some space between the buttons */
 }
 
 #raffleContainer {
-    margin-left: 20px; /* Adjust this value as needed */
-    width: 24%; /* Set width to occupy 25% of the viewport */
+    margin-right: 20px;
+    max-width: 400px; /* Set a maximum width for the container */
+    width: 60%; /* Set a relative width to ensure responsiveness */
+    margin: 0 auto; /* Center the container horizontally */
     height: 80vh; /* Set height to occupy 80% of the viewport height */
     max-height: 80%; /* Set maximum height to 80% of viewport height */
     overflow-y: auto; /* Allow vertical scrolling if needed */
@@ -141,8 +136,9 @@ canvas {
   border-radius: 10px;
   padding: 20px;
   width: 80%;
-  height: 200px;
-  max-width: 600px;
+  max-width: 600px; /* Set a maximum width for responsiveness */
+  height: 200px; /* Fixed height */
+  max-height: calc(100vh - 200px); /* Maximum height responsive to viewport height */
   margin: 50px auto;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -150,8 +146,9 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: auto; /* Enable scrolling if content exceeds the height */
 }
+
 
 #winnerName {
   background: transparent !important;
@@ -255,4 +252,6 @@ footer {
   right: 0;
   padding: 10px;
   background-color: #f0f0f0;
+  font-size: 12px; /* Smaller font size */
+  font-style: italic; /* Italicized text */
 }
