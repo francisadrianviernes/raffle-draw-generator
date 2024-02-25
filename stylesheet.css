@@ -104,6 +104,7 @@ canvas {
 }
 
 #raffleContainer {
+    margin-left: 20px; /* Adjust this value as needed */
     width: 24%; /* Set width to occupy 25% of the viewport */
     height: 80vh; /* Set height to occupy 80% of the viewport height */
     max-height: 80%; /* Set maximum height to 80% of viewport height */
